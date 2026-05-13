@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Privacy Policy - Mitchmo</title>
+  <meta name="description" content="Privacy Policy for Mitchmo.">
+  <meta name="theme-color" content="#0A84FF">
+  <link rel="icon" href="icon.png" type="image/png">
+  <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="Mitchmo home">
+      <img class="app-icon" src="icon.png" alt="" aria-hidden="true">
+      <span>Mitchmo</span>
+    </a>
+    <button class="menu-toggle" type="button" data-menu-toggle aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    <nav data-site-nav>
+      <a href="index.html#features">Features</a>
+      <a href="index.html#how">How it works</a>
+      <a href="privacy.html">Privacy</a>
+    </nav>
+  </header>
+
+  <main class="policy-page">
+    <section class="policy-hero">
+      <div class="eyebrow">Mitchmo</div>
+      <h1>Privacy Policy</h1>
+      <p>Effective Date: May 13, 2026</p>
+    </section>
+
+    <section class="policy-card">
+      <h2>Overview</h2>
+      <p>Mitchmo is designed as a simple memo app for quickly writing, organizing, and saving notes in a text-message style interface. We respect your privacy and aim to keep the app simple and private.</p>
+
+      <h2>Information We Collect</h2>
+      <p>Mitchmo does not require you to create an account and does not intentionally collect personal information from you.</p>
+      <p>Your memos are created and managed on your device. We do not operate a server that stores or reads your memo content.</p>
+
+      <h2>Memo Data</h2>
+      <p>Memo content you create in Mitchmo remains on your device unless you choose to share, export, back up, or otherwise transfer it using features provided by iOS or your device.</p>
+
+      <h2>Analytics and Diagnostics</h2>
+      <p>Mitchmo may rely on Apple-provided diagnostics or crash reporting if you have enabled sharing diagnostics with app developers in your device settings. This information is provided by Apple and is used only to improve app stability and performance.</p>
+
+      <h2>Third-Party Services</h2>
+      <p>Mitchmo does not use third-party advertising trackers. If the app uses Apple services such as the App Store, iCloud, or system diagnostics, those services are governed by Apple's own privacy policies and device settings.</p>
+
+      <h2>Children's Privacy</h2>
+      <p>Mitchmo is not intended to knowingly collect personal information from children. Since the app does not require an account or intentionally collect personal information, we do not knowingly collect data from children.</p>
+
+      <h2>Data Security</h2>
+      <p>Because memo data is stored locally on your device, your device security settings, such as passcode, Face ID, Touch ID, and iOS protections, help protect your data.</p>
+
+      <h2>Your Choices</h2>
+      <p>You can delete memos inside the app. You may also remove the app from your device to delete locally stored app data, subject to how iOS handles app removal and backups.</p>
+
+      <h2>Changes to This Policy</h2>
+      <p>We may update this Privacy Policy when the app changes or when required by law. The updated policy will be posted on this page with a new effective date.</p>
+
+      <h2>Contact</h2>
+      <p>If you have questions about this Privacy Policy or Mitchmo, contact us at <a href="mailto:brick@pixelbricktek.com">brick@pixelbricktek.com</a>.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <span>© 2026 PixelBrick. All rights reserved.</span>
+    <div>
+      <a href="index.html">Home</a>
+      <button class="contact-link" type="button" data-contact-button>Contact</button>
+    </div>
+  </footer>
+
+  <div class="contact-popup" data-contact-popup aria-live="polite">
+    <div class="contact-popup-title">Contact</div>
+    <button class="contact-email" type="button" data-copy-email>brick@pixelbricktek.com</button>
+    <div class="contact-hint" data-contact-hint>Tap to copy</div>
+  </div>
+
+  <script>
+    const menuToggle = document.querySelector('[data-menu-toggle]');
+    const siteNav = document.querySelector('[data-site-nav]');
+    const contactButton = document.querySelector('[data-contact-button]');
+    const contactPopup = document.querySelector('[data-contact-popup]');
+    const copyEmailButton = document.querySelector('[data-copy-email]');
+    const contactHint = document.querySelector('[data-contact-hint]');
+    const contactEmail = 'brick@pixelbricktek.com';
+
+    menuToggle?.addEventListener('click', () => {
+      const isOpen = siteNav?.classList.toggle('is-open');
+      menuToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    });
+
+    siteNav?.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', () => {
+        siteNav.classList.remove('is-open');
+        menuToggle?.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    contactButton?.addEventListener('click', () => {
+      contactPopup?.classList.toggle('is-visible');
+      contactHint.textContent = 'Tap to copy';
+    });
+
+    copyEmailButton?.addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText(contactEmail);
+        contactHint.textContent = 'Copied';
+      } catch {
+        contactHint.textContent = 'Select and copy';
+      }
+    });
+  </script>
+</body>
+</html>

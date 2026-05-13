@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mitchmo - Memo like texting</title>
+  <meta name="description" content="Mitchmo is a clean memo app that lets you take quick notes like sending text messages and save only what you need.">
+  <meta name="theme-color" content="#0A84FF">
+  <meta property="og:title" content="Mitchmo - Memo like texting">
+  <meta property="og:description" content="Take quick notes like texting, and save only what you need.">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="icon.png" type="image/png">
+  <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="Mitchmo home">
+      <img class="app-icon" src="icon.png" alt="" aria-hidden="true">
+      <span>Mitchmo</span>
+    </a>
+    <button class="menu-toggle" type="button" data-menu-toggle aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    <nav data-site-nav>
+      <a href="#features">Features</a>
+      <a href="#how">How it works</a>
+      <a href="privacy.html">Privacy</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-copy">
+        <div class="eyebrow">Text-message style memo app</div>
+        <h1><span>Memo</span> like texting.</h1>
+        <p>Take quick notes like texting, and save only what you need.</p>
+        <div class="hero-actions">
+          <a class="primary-button" href="#download">Coming to the App Store</a>
+          <a class="secondary-button" href="#how">See how it works</a>
+        </div>
+      </div>
+
+      <div class="hero-visual" aria-label="Mitchmo message style memo preview">
+        <div class="bubble bubble-green large">design references</div>
+        <div class="bubble bubble-blue mid">my idea</div>
+        <div class="bubble bubble-green small">things to buy</div>
+        <div class="bubble bubble-blue large">trip plan</div>
+      </div>
+    </section>
+
+    <section id="features" class="section">
+      <div class="section-heading">
+        <p>Simple by design</p>
+        <h2>Fast notes, clean sorting.</h2>
+      </div>
+      <div class="feature-grid">
+        <article class="card blue-card">
+          <div class="card-icon">→</div>
+          <h3>Quick blue memos</h3>
+          <p>Open the app, type, and send. Blue memos are perfect for quick temporary thoughts.</p>
+        </article>
+        <article class="card green-card">
+          <div class="card-icon">✓</div>
+          <h3>Save green memos</h3>
+          <p>Swipe a memo left to turn it green and use it like a checked item ready to save.</p>
+        </article>
+        <article class="card white-card">
+          <div class="card-icon">✦</div>
+          <h3>Clean everything up</h3>
+          <p>Save only green memos with the top-right check button, then clear blue memos all at once.</p>
+        </article>
+        <article class="card dark-card">
+          <div class="card-icon">◐</div>
+          <h3>Theme switching</h3>
+          <p>Switch themes and keep your memo space comfortable, minimal, and easy to read.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="how" class="section split-section">
+      <div>
+        <p class="section-label">How it works</p>
+        <h2>Write, swipe, save.</h2>
+        <p class="section-text">Mitchmo is built around the feeling of sending a text message. There is no complicated folder screen before you start. Just open the app and write.</p>
+      </div>
+      <div class="steps">
+        <div class="step"><span>1</span><p>Enter a memo and tap send to create a blue memo.</p></div>
+        <div class="step"><span>2</span><p>Swipe left on important memos to turn them green.</p></div>
+        <div class="step"><span>3</span><p>Tap the check button to save only green memos.</p></div>
+        <div class="step"><span>4</span><p>Delete temporary blue memos all at once when you are done.</p></div>
+      </div>
+    </section>
+
+    <section id="download" class="download">
+      <div class="download-card">
+        <img class="logo-large app-icon-large" src="icon.png" alt="Mitchmo app icon">
+        <h2>Mitchmo</h2>
+        <p>Quick notes. Clear ideas.</p>
+        <a class="primary-button" href="#">App Store link coming soon</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <span>© 2026 PixelBrick. All rights reserved.</span>
+    <div>
+      <a href="privacy.html">Privacy Policy</a>
+      <button class="contact-link" type="button" data-contact-button>Contact</button>
+    </div>
+  </footer>
+
+  <div class="contact-popup" data-contact-popup aria-live="polite">
+    <div class="contact-popup-title">Contact</div>
+    <button class="contact-email" type="button" data-copy-email>brick@pixelbricktek.com</button>
+    <div class="contact-hint" data-contact-hint>Tap to copy</div>
+  </div>
+
+  <script>
+    const menuToggle = document.querySelector('[data-menu-toggle]');
+    const siteNav = document.querySelector('[data-site-nav]');
+    const contactButton = document.querySelector('[data-contact-button]');
+    const contactPopup = document.querySelector('[data-contact-popup]');
+    const copyEmailButton = document.querySelector('[data-copy-email]');
+    const contactHint = document.querySelector('[data-contact-hint]');
+    const contactEmail = 'brick@pixelbricktek.com';
+
+    menuToggle?.addEventListener('click', () => {
+      const isOpen = siteNav?.classList.toggle('is-open');
+      menuToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    });
+
+    siteNav?.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', () => {
+        siteNav.classList.remove('is-open');
+        menuToggle?.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    contactButton?.addEventListener('click', () => {
+      contactPopup?.classList.toggle('is-visible');
+      contactHint.textContent = 'Tap to copy';
+    });
+
+    copyEmailButton?.addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText(contactEmail);
+        contactHint.textContent = 'Copied';
+      } catch {
+        contactHint.textContent = 'Select and copy';
+      }
+    });
+  </script>
+</body>
+</html>
