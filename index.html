@@ -9,8 +9,9 @@
   <meta property="og:title" content="Mitchmo - Memo like texting">
   <meta property="og:description" content="Take quick notes like texting, and save only what you need.">
   <meta property="og:type" content="website">
-  <link rel="icon" href="icon.png" type="image/png">
-  <link rel="stylesheet" href="assets/styles.css">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icon.png">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <header class="site-header">
@@ -33,16 +34,19 @@
         <h1><span>Memo</span> like texting.</h1>
         <p>Take quick notes like texting, and save only what you need.</p>
         <div class="hero-actions">
-          <a class="primary-button" href="#download">Coming to the App Store</a>
+          <a class="primary-button" href="https://apps.apple.com/app/id6768875399">Download on the App Store</a>
           <a class="secondary-button" href="#how">See how it works</a>
         </div>
       </div>
 
       <div class="hero-visual" aria-label="Mitchmo message style memo preview">
-        <div class="bubble bubble-green large">design references</div>
-        <div class="bubble bubble-blue mid">my idea</div>
-        <div class="bubble bubble-green small">things to buy</div>
-        <div class="bubble bubble-blue large">trip plan</div>
+        <div class="bubble bubble-green bubble-drift-right hero-bubble-1">design ideas</div>
+        <div class="bubble bubble-blue bubble-drift-left hero-bubble-2">quick thought</div>
+        <div class="bubble bubble-green bubble-drift-right hero-bubble-3">things to buy</div>
+        <div class="bubble bubble-blue bubble-drift-left hero-bubble-4">trip plan</div>
+        <div class="bubble bubble-green bubble-drift-right hero-bubble-5">remember this</div>
+        <div class="bubble bubble-blue bubble-drift-left hero-bubble-6">later tonight</div>
+        <div class="bubble bubble-blue bubble-drift-left hero-bubble-7">save this</div>
       </div>
     </section>
 
@@ -94,7 +98,7 @@
         <img class="logo-large app-icon-large" src="icon.png" alt="Mitchmo app icon">
         <h2>Mitchmo</h2>
         <p>Quick notes. Clear ideas.</p>
-        <a class="primary-button" href="#">App Store link coming soon</a>
+        <a class="primary-button" href="https://apps.apple.com/app/id6768875399">Download on the App Store</a>
       </div>
     </section>
   </main>
@@ -121,6 +125,64 @@
     const copyEmailButton = document.querySelector('[data-copy-email]');
     const contactHint = document.querySelector('[data-contact-hint]');
     const contactEmail = 'brick@pixelbricktek.com';
+    const floatingBubbles = document.querySelectorAll('.hero-visual .bubble');
+    const bubbleTexts = ["design ideas", "quick thought", "things to buy", "trip plan", "remember this", "later tonight", "save this", "new app idea", "fix the icon", "call tomorrow", "coffee beans", "book title", "blog draft", "release note", "movie list", "gift ideas", "check price", "weekend plan", "tiny reminder", "write this", "random spark", "nice phrase", "buy bananas", "upload screenshots", "test build", "sleep earlier", "walk outside", "send email", "backup photos", "clean desk", "order cable", "try recipe", "packing list", "meeting note", "bug found", "review later", "launch copy", "name idea", "today memo", "small win", "idea stack", "next update", "read manual", "make logo", "check weather", "take vitamins", "water plants", "edit text", "save link", "new habit", "draft title", "pay bill", "post later", "app keyword", "fix button", "nice color", "daily note", "buy milk", "send invoice", "learn phrase", "tiny task", "morning plan", "evening note", "week goal", "wishlist", "shopping list", "travel memo", "photo idea", "sound idea", "quote saved", "watch later", "idea seed", "quick list", "try this", "important", "someday", "maybe later", "today only", "clear inbox", "review app", "write blog", "push update", "fix layout", "test again", "make better", "small detail", "note to self", "focus time", "check server", "backup now", "new feature", "remove clutter", "keep simple", "save green", "blue memo", "green memo", "archive this", "mood note", "song idea", "video idea", "road trip", "hotel note", "flight time", "train time", "receipt memo", "tax note", "domain idea", "site copy", "hero text", "button label", "privacy check", "app link", "store text", "caption idea", "short line", "long memo", "quick draft", "random list", "buy coffee", "fix typo", "UI polish", "UX idea", "soft motion", "cute detail", "smooth delete", "copy button", "edit button", "toast text", "menu label", "localize", "English copy", "German copy", "Spanish copy", "Japanese copy", "Chinese copy", "Korean copy", "blog topic", "search word", "keyword list", "ad phrase", "launch plan", "promo code", "price test", "review reply", "support mail", "contact note", "test device", "iPad check", "dark mode", "light mode", "icon test", "screenshot", "mockup", "font check", "spacing fix", "corner radius", "shadow soft", "gradient", "bubble motion", "haptic idea", "delete later", "save later", "read later", "think later", "maybe buy", "maybe build", "maybe write", "try again", "ship today", "ship soon", "keep going", "small app", "big idea", "first draft", "second draft", "final check", "copy paste", "notes only", "memo flow", "chat style", "simple note", "fast note", "clean note", "tiny memo", "sort later", "important list", "done list", "finish this", "open app", "write fast", "send memo", "mark green", "clear blue", "save ideas", "daily log", "food list", "fruit list", "oil list", "snack idea", "coffee shop", "walk route", "bus time", "map note", "address memo", "photo spot", "travel photo", "radio freq", "garden note", "tree care", "cat food", "home task", "laundry", "trash day", "battery check", "wifi note", "VPN note", "FTP note", "NAS note", "server memo", "cache note", "thumbnail", "gallery", "privacy", "policy", "support", "version note", "build number", "release day", "store review", "promo page", "site update", "favicon", "style file", "index page", "hero bubble", "top right", "random text", "random size", "free motion", "clean round", "no tail", "smooth swap", "blue to green", "green to blue", "balanced", "natural", "cute bubble", "memo mood", "app store", "download link", "one thing", "two things", "three ideas", "quick save", "thought cloud", "mental note", "rough idea", "nice wording", "clear wording", "make concise", "less text", "more feeling", "warm tone", "soft tone", "playful tone", "premium look", "fresh feel", "simple life", "work note", "personal note", "shopping memo", "coding memo", "design memo", "marketing memo", "app memo", "travel plan", "daily plan", "tonight task", "tomorrow task", "next week", "later list", "finish blog", "check copy", "fix page", "zip files", "send build", "open Xcode", "run test", "upload app", "check crash", "read review", "answer mail", "write title", "make icon", "save draft", "buy juice", "buy pie", "olive oil", "apple juice", "banana pie"];
+
+    const randomText = () => bubbleTexts[Math.floor(Math.random() * bubbleTexts.length)];
+    const randomRange = (min, max) => min + Math.random() * (max - min);
+
+    const setBubbleStartPosition = (bubble) => {
+      const visual = bubble.closest('.hero-visual');
+      const visualWidth = visual?.clientWidth || 560;
+      const visualHeight = visual?.clientHeight || 660;
+      const maxLeft = Math.max(40, visualWidth - 270);
+      const maxTop = Math.max(40, visualHeight - 110);
+
+      bubble.style.left = `${Math.round(randomRange(24, maxLeft))}px`;
+      bubble.style.top = `${Math.round(randomRange(34, maxTop))}px`;
+      bubble.style.right = 'auto';
+      bubble.style.bottom = 'auto';
+    };
+
+    const moveBubbleNaturally = (bubble) => {
+      const goesRight = bubble.classList.contains('bubble-drift-right');
+      const phase = bubble.dataset.phase === '1' ? 0 : 1;
+      bubble.dataset.phase = String(phase);
+
+      const x = phase
+        ? Math.round(randomRange(32, 128)) * (goesRight ? 1 : -1)
+        : Math.round(randomRange(-28, 28));
+      const y = Math.round(randomRange(-64, 64));
+      const rotate = randomRange(-5.5, 5.5).toFixed(2);
+      const scale = randomRange(0.98, 1.055).toFixed(3);
+      const duration = randomRange(5.8, 10.8).toFixed(2);
+
+      bubble.style.transitionDuration = `${duration}s, ${duration}s, ${duration}s, 0.42s, 0.42s`;
+      bubble.style.transform = `translate3d(${x}px, ${y}px, 0) rotate(${rotate}deg) scale(${scale})`;
+      bubble.classList.toggle('is-blue', goesRight ? !!phase : !phase);
+      bubble.classList.toggle('is-green', goesRight ? !phase : !!phase);
+    };
+
+    const updateBubbleText = (bubble) => {
+      bubble.classList.add('is-changing');
+
+      window.setTimeout(() => {
+        const text = randomText();
+        const fontSize = Math.round(randomRange(17, 30));
+        bubble.textContent = text;
+        bubble.style.fontSize = `${fontSize}px`;
+        bubble.classList.remove('is-changing');
+      }, 260);
+    };
+
+    floatingBubbles.forEach((bubble, index) => {
+      setBubbleStartPosition(bubble);
+      updateBubbleText(bubble);
+
+      window.setTimeout(() => moveBubbleNaturally(bubble), 120 + index * 160);
+      window.setInterval(() => moveBubbleNaturally(bubble), randomRange(6200, 10800));
+      window.setInterval(() => updateBubbleText(bubble), randomRange(3600, 7200));
+    });
 
     menuToggle?.addEventListener('click', () => {
       const isOpen = siteNav?.classList.toggle('is-open');
