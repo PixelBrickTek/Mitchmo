@@ -574,6 +574,80 @@ main {
   font-weight: 800;
 }
 
+
+.smart-section {
+  margin-top: 88px;
+}
+
+.smart-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+}
+
+.smart-card {
+  min-height: 260px;
+  padding: 34px;
+  border-radius: 38px;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.72);
+  box-shadow: 0 24px 64px rgba(31, 48, 76, 0.11);
+}
+
+.smart-card::before {
+  content: "";
+  position: absolute;
+  inset: -40% -20% auto auto;
+  width: 260px;
+  height: 260px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.24);
+  filter: blur(2px);
+}
+
+.webdrop-card {
+  color: #fff;
+  background: linear-gradient(145deg, #1295FF, #0068EE);
+}
+
+.answer-card {
+  color: #fff;
+  background: linear-gradient(145deg, #5EE173, #17B84D);
+}
+
+.smart-icon {
+  width: 56px;
+  height: 56px;
+  display: grid;
+  place-items: center;
+  margin-bottom: 28px;
+  border-radius: 20px;
+  background: rgba(255,255,255,0.22);
+  color: #fff;
+  font-size: 25px;
+  font-weight: 950;
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.26);
+}
+
+.smart-card h3 {
+  position: relative;
+  margin: 0 0 12px;
+  font-size: 32px;
+  line-height: 1;
+  letter-spacing: -0.055em;
+}
+
+.smart-card p {
+  position: relative;
+  max-width: 420px;
+  margin: 0;
+  color: rgba(255,255,255,0.88);
+  font-size: 18px;
+  line-height: 1.48;
+  font-weight: 700;
+}
+
 @media (max-width: 900px) {
   .hero,
   .split-section {
@@ -590,6 +664,10 @@ main {
 
   .feature-grid {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .smart-grid {
+    grid-template-columns: 1fr;
   }
 }
 
@@ -676,6 +754,20 @@ main {
 
   .feature-grid {
     grid-template-columns: 1fr;
+  }
+
+  .smart-card {
+    min-height: 230px;
+    padding: 28px;
+    border-radius: 32px;
+  }
+
+  .smart-card h3 {
+    font-size: 28px;
+  }
+
+  .smart-card p {
+    font-size: 16px;
   }
 
   .site-footer {
